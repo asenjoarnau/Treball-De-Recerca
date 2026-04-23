@@ -1,0 +1,30 @@
+# LaTeX temporals
+build/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+*.brf
+*.lof
+*.lot
+*.idx
+*.ilg
+*.ind
+
+# Sistema i VS Code
+.vscode/*
+!.vscode/settings.json
+.DS_Store
+*.swp
+node_modules/
+
+# PDF (Opcional: Si vols que el PDF es pugi a GitHub, comenta la línia següent)
+# *.pdf

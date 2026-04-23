@@ -1,43 +1,82 @@
 \documentclass[12pt,a4paper]{article}
 
-% --- Preàmbul: Paquets i configuració ---
+% --- Paquets de Llengua i Tipografia ---
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[catalan]{babel}
-\usepackage[margin=2.5cm]{geometry}
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{setspace}
-\usepackage{hyperref}
-\usepackage{enumitem}
+\usepackage[default]{sourcesanspro} % Opció 'default' per forçar-la
+\usepackage{microtype}
 
-% Configuració d'interlineat
-\onehalfspacing
+% --- Colors personalitzats ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{MidnightBlue}{RGB}{25, 25, 112}
+\definecolor{RoyalBlue}{RGB}{65, 105, 225}
+\definecolor{TealBlue}{RGB}{0, 128, 128}
+
+% --- Configuració de Pàgina ---
+\usepackage[margin=2.5cm, headheight=15pt]{geometry} % Ajustat headheight
+\usepackage{setspace}
+\onehalfspacing 
+
+% --- Capçaleres i Peus de Pàgina ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small \color{gray} Arnau Asenjo Navarro}
+\fancyhead[R]{\small \color{MidnightBlue} La millor motocicleta nua d'Honda}
+\fancyfoot[C]{\thepage}
+
+% --- Estil de Títols ---
+\usepackage{titlesec}
+\titleformat{\section}{\color{RoyalBlue}\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\color{TealBlue}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+% --- Altres paquets ---
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=MidnightBlue,
+    filecolor=magenta,      
+    urlcolor=TealBlue,
+}
+\usepackage{enumitem}
 
 % --- Inici del document ---
 \begin{document}
 
 % --- Portada ---
 \begin{titlepage}
+    \pagenumbering{Alph} % Numeració diferent per evitar conflictes amb hyperref
     \centering
     \vspace*{2cm}
-    {\huge \textbf{La CB650R és la moto de la marca Honda més equilibrada?}} \\
-    \vspace{1.5cm}
-    {\large Treball de Recerca de Batxillerat} \\
-    \vspace{3cm}
-    \begin{flushright}
-        \textbf{Alumne:} Arnau Asenjo Navarro \\
-        \textbf{Professora:} Anna Puig \\
-        \textbf{Data de presentació:} Abril de 2026
-    \end{flushright}
+    {\Huge \color{MidnightBlue} \textbf{La CB650R és la moto de la marca Honda més equilibrada?}} \\
+    \vspace{1cm}
+    {\Large \color{gray} Comparativa tècnica i anàlisi del segment naked mitjà} \\
+    \vspace{2cm}
+    % \includegraphics[width=0.6\textwidth]{honda_logo.png} 
     \vfill
+    {\large \textbf{Autor:} Arnau Asenjo Navarro} \\
+    {\large \textbf{Tutora:} Anna Puig} \\
+    {\large \textbf{Curs:} 2025-2026} \\
+    \vspace{1cm}
+    {\large \textbf{Centre:} [Nom del teu Institut]} \\
+    \vspace{1cm}
+    {\large Abril de 2026}
 \end{titlepage}
+
+\pagenumbering{arabic} % Tornem a la numeració normal
 
 % --- Índex ---
 \newpage
 \tableofcontents
 \newpage
 
-% --- Secció 1: Introducció ---
+% --- Seccions connectades ---
+\input{Introducció}
 
+\newpage
+\input{MarcTeoric}
 
-% --- Secció 2: Marc teòric ---
+\end{document}
